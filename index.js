@@ -16,7 +16,6 @@ mongoose.connect('mongodb://localhost:27017/cryptoDB', {
     .then(() => console.log('MongoDB connected'))
     .catch(console.error);
 
-// Middleware for JSON
 app.use(express.json());
 
 // Routes
@@ -26,10 +25,4 @@ app.use('/api/deviation', deviationRoutes);
 // Cron Job: Fetch Crypto Data Every 2 Hours
 cron.schedule('0 */2 * * *', fetchCryptoData);
 
-// Test Fetch Function (Remove After Testing)
-fetchCryptoData()
-    .then(() => console.log('Crypto data fetched and saved to database (manual test)'))
-    .catch(err => console.error('Error fetching crypto data:', err));
-
-// Server Start
 app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
