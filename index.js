@@ -4,6 +4,7 @@ const cron = require('node-cron');
 const fetchCryptoData = require('./jobs/fetchCryptoData');
 const statsRoutes = require('./routes/stats');
 const deviationRoutes = require('./routes/deviation');
+require('dotenv').config();
 
 const app = express();
 const PORT = process.env.PORT || 3001;
